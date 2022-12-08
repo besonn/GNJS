@@ -1,0 +1,14 @@
+// 以下是词法测试
+import "add.py";
+
+var car = "Benz";
+/* 计算 */
+var payment = func (){
+    return price * (add(1.0 + 0.1));
+}
+var list = [1,"brand",4-2,[3,4],{a:"b"}];
+var i = 1;
+while(i<sizeof(list)){
+    println list[i];
+    i++;
+}

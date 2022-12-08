@@ -1,0 +1,144 @@
+// GNJS快速入门手册, 这里涵盖了所有基本用法
+
+/* 变量 */
+
+var x = 1;
+var str = "MyStr";
+
+/* 单行注释 */
+var x = 1;
+/*
+ * 多行注释
+ */
+var str = "MyStr";
+
+/* 打印语句 */
+var x = 1;
+var str = "MyStr";
+println x;
+println str;
+println [1,2,3];
+
+/* 自增自减 */
+var x = 1;
+x++; // => x = x + 1;
+x--; // => x = x - 1;
+println x;
+
+/* 变量类型 */
+// 数字
+var x = 4;
+var y = 2;
+
+// 字符串
+var str = "MyStr";
+
+// 表达式
+var cal_xy = (x + y)/2 - (1 + y) * 3;
+
+// 列表
+var list = [1,"2",1+2];
+println "list output";
+println list[1]; // => 获取 list的第二个元素
+
+// 字典
+var dic = {"a":2,"b":3,"c":x+y-1};
+println "dic output";
+println dic["c"]; // => 获取 dic key为 "c" 的元素
+
+// 函数
+var add = func(x,y){
+    return x + y; // 使用 return 返回值
+};
+println "function output";
+println add(x,y); // => 调用add函数
+
+/* 柯里化 */
+
+// 柯里化
+var f = func(x){
+    return func(y){
+        return func(z){
+            return func(a){
+                return func(b){
+                    return x + y * z + a + b;
+                };
+            };
+        };
+    };
+};
+var a = func(f,x){
+    return f(x);
+};
+// 调用函数
+a(f,2)(3)(8)(4)(5);
+
+
+/* 递归 */
+
+// 函数的递归（使用变量）
+var f = func(x) {
+    if ( x == 1 ){
+        return 0;
+    }
+    else{
+        return x + f(x-1);
+    }
+};
+println f(6);
+
+/* 条件语句 */
+
+var t = 1;
+if(t > 0){
+    println "Yes";
+}
+else{
+    println "No";
+}
+
+/* 循环语句 */
+
+var m = 1;
+while(m < 10){
+    println "Yes";
+    if(m == 5){
+        break;
+    }
+    m++;
+}
+println "m is :";
+println m;
+
+/* import */
+
+import "connection.gnjs";
+
+/* 匿名函数 */
+
+var exeTwice = func(f, x){
+    return f(x);
+};
+
+// 匿名函数
+println exeTwice((func(x) { return x + 2;}),3);
+
+/* 内置函数 */
+
+var a = [1,2,3,4,5];
+sizeof(a);
+typeof(a);
+
+push(a,6,7,8,9,10);
+println "a:";
+println a;
+pop(a);
+println "a:";
+println a;
+set(a,0,"first");
+println "a:";
+println a;
+
+
+
+

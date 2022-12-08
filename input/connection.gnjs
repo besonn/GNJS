@@ -1,0 +1,40 @@
+// 例子-判断连通图
+
+// 0->1->2->3,4->2
+var input = [[1],[0,2],[1,3],[2]];
+var n = sizeof(input);
+// 是否走过
+var used = [];
+var i = 0;
+while (i<n+2){
+    // 将used 初始化
+    push(used,0);
+    i++;
+}
+// f(节点，遍历过的次数)
+var f = func(u , index){
+    var ind = index + 1;
+    // 将该节点设置为遍历过
+    set(used,u,1);
+    var x = 0;
+    var Temp = input[u];
+    var t = sizeof(Temp);
+
+    while( x < t){
+        var v = Temp[x];
+        // 加入没有遍历过该节点
+        if(used[v] == 0){
+            var ind = f(v,ind);
+        }
+        x++;
+    }
+    return ind ;
+};
+var ans = f(0,0);
+// 加入可以走过所有节点，证明是联通的，否则不连通
+if(n == ans ){
+    println "Yes!";
+}
+else{
+    println "No!" ;
+}
